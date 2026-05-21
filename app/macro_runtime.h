@@ -47,6 +47,7 @@ private:
     void processItemUnequipComOffsetMacro(bool foregroundAllowed);
     void processItemClipMacro(bool foregroundAllowed);
     void processLaughClipMacro(bool foregroundAllowed);
+    void processDance2ClipMacro(bool foregroundAllowed); // DiamondRoPlayz custom /e dance2 clip
     void processWallWalkMacro(bool foregroundAllowed);
     void processSpamKeyMacros();
     void processLedgeBounceMacro(bool foregroundAllowed);
@@ -97,6 +98,7 @@ private:
     bool itemUnequipWasPressed_ = false;
     bool itemClipWasPressed_ = false;
     bool laughClipWasPressed_ = false;
+    bool dance2ClipWasPressed_ = false; // DiamondRoPlayz custom /e dance2 clip
     bool wallWalkWasPressed_ = false;
     bool ledgeBounceWasPressed_ = false;
     bool floorBounceWasPressed_ = false;
@@ -111,6 +113,7 @@ private:
     std::atomic<bool> bunnyhopWorkerActive_{false};
     std::atomic<bool> itemUnequipWorkerActive_{false};
     std::atomic<bool> laughClipWorkerActive_{false};
+    std::atomic<bool> dance2ClipWorkerActive_{false}; // DiamondRoPlayz custom /e dance2 clip
 };
 
 } // namespace smu::app

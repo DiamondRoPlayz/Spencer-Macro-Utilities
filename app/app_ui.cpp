@@ -121,6 +121,7 @@ std::array<SectionConfig, section_amounts> SECTION_CONFIGS = {{
     {"Walless LHJ", "Perform a lag high jump without using a wall."},
     {"Item Clip", "Clip through thin walls using item equip timing."},
     {"Laugh Clip", "Perform a laugh clip automatically."},
+    {"Dance2 Clip", "Perform a dance2 clip automatically."}, // DiamondRoPlayz custom /e dance2 clip
     {"Wall-Walk", "Walk along wall seams without jumping."},
     {"Spam a Key", "Spam a selected key while the macro is active."},
     {"Ledge Bounce", "Drop from a ledge and bounce back with timed camera movement."},
@@ -2739,6 +2740,22 @@ void RenderSelectedSection(AppContext& context)
     }
 
     if (selected_section == 10) {
+        ImGui::Separator();
+        //ImGui::SliderInt("Dance2 Flick Pixels", &dance2_flick_pixels, 100, 1000, "%d px");
+        //ImGui::TextDisabled("Adjust this value until the camera flicks a perfect 90 degrees left.");
+        //ImGui::NewLine();
+        ImGui::TextWrapped("Explanation:");
+        ImGui::NewLine();
+        ImGui::TextWrapped("This macro utilizes the dance2 animation and a 90 degrees left camera rotation to phase through thin walls.");
+        ImGui::TextWrapped("REQUIREMENTS: R6 avatar type, Shift Lock enabled in settings, and stable frame rates.");
+        ImGui::TextWrapped("Set yourself and the camera up like this:");
+        
+        RenderCenteredMacroTutorialImage(MacroTutorialImage::LaughClip, 248.0f, 140.0f);// temp
+        
+        ImGui::TextWrapped("How to use: Face the wall directly with Shift Lock OFF, rotate camera 90 degrees left, then press the hotkey. The macro will automatically run the emote, calculate the animation delay, and flash Shift Lock.");
+    }
+
+    if (selected_section == 11) {
         float currentWallWalkValue = static_cast<float>(std::atof(RobloxSensValue));
         if (currentWallWalkValue != 0.0f && currentWallWalkValue != PreviousWallWalkValue) {
             wallwalk_strengthx = static_cast<int>(std::round(((camfixtoggle ? 500.0f : 360.0f) / currentWallWalkValue) * 0.13f));
@@ -2770,7 +2787,7 @@ void RenderSelectedSection(AppContext& context)
         ImGui::TextWrapped("Walk up to the seam at a slight angle, then trigger the macro while holding W and D or W and A depending on the selected flick side.");
     }
 
-    if (selected_section == 11) {
+    if (selected_section == 12) {
         if (spamkey_instances.empty()) {
             ImGui::TextWrapped("No spamkey instances.");
         } else {
@@ -2806,7 +2823,7 @@ void RenderSelectedSection(AppContext& context)
         }
     }
 
-    if (selected_section == 12) {
+    if (selected_section == 13) {
         ImGui::Checkbox("Switch Ledge Bounce to Left-Sided", &bouncesidetoggle);
         ImGui::Checkbox("Stay Horizontal After Bounce", &bouncerealignsideways);
         ImGui::Checkbox("Automatically Hold Movement Keys", &bounceautohold);
@@ -2819,7 +2836,7 @@ void RenderSelectedSection(AppContext& context)
         ImGui::TextWrapped("This macro allows you to drop from a ledge and bounce back with timed camera movement. Walk up to a ledge with your camera sideways and about half of your left foot on the platform, then trigger the macro.");
     }
 
-    if (selected_section == 13) {
+    if (selected_section == 14) {
         ImGui::TextWrapped("Bunnyhop Delay in Milliseconds (Default 10ms):");
         ImGui::SameLine();
         ImGui::SetNextItemWidth(120.0f);
@@ -2836,7 +2853,7 @@ void RenderSelectedSection(AppContext& context)
         ImGui::TextWrapped("This will only be restricted to the target application when 'Disable outside of Target Application' is enabled.");
     }
 
-    if (selected_section == 14) {
+    if (selected_section == 15) {
         ImGui::Checkbox("Attempt to HHJ for potentially slightly more height (EXPERIMENTAL, NOT RECOMMENDED)", &floorbouncehhj);
         if (ImGui::CollapsingHeader("Advanced Floor Bounce HHJ Options", showadvancedhhjbounce ? ImGuiTreeNodeFlags_DefaultOpen : 0)) {
             showadvancedhhjbounce = true;
@@ -2870,7 +2887,7 @@ void RenderSelectedSection(AppContext& context)
         ImGui::TextWrapped("After this, trigger the macro on flat ground. Results can vary, and the HHJ option may add a little more height but is experimental.");
     }
 
-    if (selected_section == 15) {
+    if (selected_section == 16) {
         auto backend = smu::platform::GetNetworkLagBackend();
         const bool backendAvailable = backend && backend->isAvailable();
         if (!backendAvailable) {

@@ -320,9 +320,10 @@ namespace Globals {
     inline unsigned int vk_xbutton1 = smu::core::SMU_VK_XBUTTON1;
     inline unsigned int vk_xbutton2 = smu::core::SMU_VK_XBUTTON2;
     inline unsigned int vk_spamkey = smu::core::SMU_VK_LBUTTON;
-    inline unsigned int vk_clipkey = smu::core::SMU_VK_F3;
-    inline unsigned int vk_wallkey = smu::core::SMU_VK_F1;
-    inline unsigned int vk_laughkey = smu::core::SMU_VK_F7;
+    inline unsigned int vk_clipkey = smu::core::SMU_VK_F1;//
+    inline unsigned int vk_wallkey = smu::core::SMU_VK_F9;//
+    inline unsigned int vk_laughkey = smu::core::SMU_VK_F3;//
+    inline unsigned int vk_dance2key = smu::core::SMU_VK_F2; // DiamondRoPlayz custom /e dance2 clip
     inline unsigned int vk_shiftkey = smu::core::SMU_VK_SHIFT;
     inline unsigned int vk_enterkey = smu::core::SMU_VK_RETURN;
     inline unsigned int vk_floorbouncekey = smu::core::SMU_VK_F4;
@@ -598,8 +599,8 @@ namespace Globals {
     inline const std::unordered_map<int, unsigned int*> section_to_key = {
         {0, &vk_mbutton}, {1, &vk_f5}, {2, &vk_xbutton1}, {3, &vk_xkey},
         {4, &vk_f8}, {5, &vk_zkey}, {6, &vk_xbutton2}, {7, &vk_f6},
-        {8, &vk_clipkey}, {9, &vk_laughkey}, {10, &vk_wallkey}, {11, &vk_leftbracket},
-        {12, &vk_bouncekey}, {13, &vk_bunnyhopkey}, {14, &vk_floorbouncekey}, {15, &vk_lagswitchkey}
+        {8, &vk_clipkey}, {9, &vk_laughkey}, {10, &vk_dance2key}, {11, &vk_wallkey}, {12, &vk_leftbracket},
+        {13, &vk_bouncekey}, {14, &vk_bunnyhopkey}, {15, &vk_floorbouncekey}, {16, &vk_lagswitchkey}
     };
 
     // Theme manager variables

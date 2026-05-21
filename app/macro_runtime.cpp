@@ -730,9 +730,14 @@ void MacroRuntime::controllerLoop()
         }
         {
 #if defined(_WIN32)
+            SMU_PROFILE_RUNTIME_SECTION(runtimeProfiler, RuntimeProfileSection::Dance2Clip);
+#endif
+            processDance2ClipMacro(foregroundForEnabledSection(10));
+        }
+#if defined(_WIN32)
             SMU_PROFILE_RUNTIME_SECTION(runtimeProfiler, RuntimeProfileSection::WallWalk);
 #endif
-            processWallWalkMacro(foregroundForEnabledSection(10));
+            processWallWalkMacro(foregroundForEnabledSection(11));
         }
         {
 #if defined(_WIN32)
@@ -744,25 +749,25 @@ void MacroRuntime::controllerLoop()
 #if defined(_WIN32)
             SMU_PROFILE_RUNTIME_SECTION(runtimeProfiler, RuntimeProfileSection::LedgeBounce);
 #endif
-            processLedgeBounceMacro(foregroundForEnabledSection(12));
+            processLedgeBounceMacro(foregroundForEnabledSection(13));
         }
         {
 #if defined(_WIN32)
             SMU_PROFILE_RUNTIME_SECTION(runtimeProfiler, RuntimeProfileSection::Bunnyhop);
 #endif
-            processBunnyhopMacro(foregroundForEnabledSection(13));
+            processBunnyhopMacro(foregroundForEnabledSection(14));
         }
         {
 #if defined(_WIN32)
             SMU_PROFILE_RUNTIME_SECTION(runtimeProfiler, RuntimeProfileSection::FloorBounce);
 #endif
-            processFloorBounceMacro(foregroundForEnabledSection(14));
+            processFloorBounceMacro(foregroundForEnabledSection(15));
         }
         {
 #if defined(_WIN32)
             SMU_PROFILE_RUNTIME_SECTION(runtimeProfiler, RuntimeProfileSection::LagSwitch);
 #endif
-            processLagSwitchMacro(foregroundForEnabledSection(15));
+            processLagSwitchMacro(foregroundForEnabledSection(16));
         }
         {
 #if defined(_WIN32)

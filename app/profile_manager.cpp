@@ -159,6 +159,7 @@ const std::unordered_map<std::string, NumericVar> numeric_vars = {
 	{"vk_xkey", &vk_xkey},
 	{"vk_clipkey", &vk_clipkey},
 	{"vk_laughkey", &vk_laughkey},
+	{"vk_dance2key", &vk_dance2key}, // DiamondRoPlayz custom /e dance2 clip
 	{"vk_bouncekey", &vk_bouncekey},
 	{"vk_bunnyhopkey", &vk_bunnyhopkey},
 	{"vk_shiftkey", &vk_shiftkey},

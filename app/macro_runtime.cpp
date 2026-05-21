@@ -60,6 +60,7 @@ enum class RuntimeProfileSection : std::size_t {
     ItemUnequip,
     ItemClip,
     LaughClip,
+    Dance2Clip, // DiamondRoPlayz custom /e dance2 clip
     WallWalk,
     SpamKey,
     LedgeBounce,
@@ -86,6 +87,7 @@ constexpr std::array<const char*, static_cast<std::size_t>(RuntimeProfileSection
     "item_unequip",
     "item_clip",
     "laugh_clip",
+    "dance2_clip", // DiamondRoPlayz custom /e dance2 clip
     "wall_walk",
     "spam_key",
     "ledge_bounce",
@@ -1293,6 +1295,44 @@ void MacroRuntime::processLaughClipMacro(bool foregroundAllowed)
             ReleaseKey(smu::core::SMU_VK_S);
         }
         laughClipWorkerActive_.store(false, std::memory_order_release);
+    });
+}
+
+void MacroRuntime::processDance2ClipMacro(bool foregroundAllowed)
+{
+    const bool pressed = foregroundAllowed && section_toggles[10] && isHotkeyPressed(vk_dance2key);
+    const bool edge = pressed && !dance2ClipWasPressed_;
+    dance2ClipWasPressed_ = pressed;
+    if (!edge) {
+        return;
+    }
+    bool expected = false;
+    if (!dance2ClipWorkerActive_.compare_exchange_strong(expected, true, std::memory_order_acq_rel)) {
+        return;
+    }
+    runWorker([this] {
+        HoldKeyBinded(vk_chatkey);
+        std::this_thread::sleep_for(50ms);
+        ReleaseKeyBinded(vk_chatkey);
+        std::this_thread::sleep_for(25ms);
+
+        smu::platform::pasteText("/e dance2", std::max(0, PasteDelay));
+        std::this_thread::sleep_for(100ms);
+        HoldKeyBinded(vk_enterkey);
+        std::this_thread::sleep_for(35ms);
+        ReleaseKeyBinded(vk_enterkey);
+
+        std::this_thread::sleep_for(830ms); 
+
+        //int flickPixels = -dance2_flick_pixels; 
+        //smu::platform::moveMouseRelative(flickPixels, 0); 
+        //std::this_thread::sleep_for(15ms);
+
+        HoldKeyBinded(vk_shiftkey);
+        std::this_thread::sleep_for(40ms);
+        ReleaseKeyBinded(vk_shiftkey);
+
+        dance2ClipWorkerActive_.store(false, std::memory_order_release);
     });
 }
 

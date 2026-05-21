@@ -14,16 +14,17 @@ struct SectionDefaults {
 };
 
 constexpr std::array<SectionDefaults, kMacroSectionCount> kSectionDefaults = {{
-    {"Freeze", "Freeze the Roblox process.", true, true, SMU_VK_MBUTTON},
-    {"Item Desync", "Desynchronize a held item from the client and server.", true, true, SMU_VK_F5},
-    {"Wall Helicopter High Jump", "Use COM offset to launch yourself high into the air.", true, false, SMU_VK_XBUTTON1},
-    {"Speedglitch", "Use COM offset to gain extreme midair speed.", true, true, SMU_VK_X},
-    {"Item Unequip COM Offset", "Create a COM offset by using an emote and unequipping an item.", true, true, SMU_VK_F8},
+    {"Freeze", "Freeze the Roblox process.", false, true, SMU_VK_MBUTTON},
+    {"Item Desync", "Desynchronize a held item from the client and server.", false, true, SMU_VK_F5},
+    {"Wall Helicopter High Jump", "Use COM offset to launch yourself high into the air.", false, false, SMU_VK_XBUTTON1},
+    {"Speedglitch", "Use COM offset to gain extreme midair speed.", false, true, SMU_VK_X},
+    {"Item Unequip COM Offset", "Create a COM offset by using an emote and unequipping an item.", false, true, SMU_VK_F8},
     {"Press a Button", "Press another key for a short moment.", false, true, SMU_VK_Z},
-    {"Wallhop/Rotation", "Flick and jump automatically to perform wallhops.", true, false, SMU_VK_XBUTTON2},
-    {"Walless LHJ", "Perform a lag high jump without using a wall.", true, false, SMU_VK_F6},
-    {"Item Clip", "Clip through thin walls using item equip timing.", true, true, SMU_VK_F3},
-    {"Laugh Clip", "Perform a laugh clip automatically.", false, true, SMU_VK_F7},
+    {"Wallhop/Rotation", "Flick and jump automatically to perform wallhops.", false, false, SMU_VK_XBUTTON2},
+    {"Walless LHJ", "Perform a lag high jump without using a wall.", false, false, SMU_VK_F6},
+    {"Item Clip", "Clip through thin walls using item equip timing.", true, true, SMU_VK_F1},
+    {"Laugh Clip", "Perform a laugh clip automatically.", true, true, SMU_VK_F3},
+    {"Dance2 Clip", "Perform a dance2 clip automatically.", true, true, SMU_VK_F2}, // DiamondRoPlayz custom /e dance2 clip
     {"Wall-Walk", "Walk along wall seams without jumping.", false, true, SMU_VK_F1},
     {"Spam a Key", "Spam a selected key while the macro is active.", false, false, SMU_VK_OEM_4},
     {"Ledge Bounce", "Drop from a ledge and bounce back with timed camera movement.", false, true, SMU_VK_C},
